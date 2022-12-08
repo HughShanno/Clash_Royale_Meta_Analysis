@@ -1,0 +1,16 @@
+['
+														
+    		Due to technical reasons beyond our control, in the next update to Clash Royale, we are unfortunately forced to end support for all Apple and Android devices running on OS versions lower than iOS 11 and Android 5.0.
+If your device is currently running on an operating system lower than iOS 11 or Android 5.0, you will no longer be able to play Clash Royale unless you update to a newer iOS or Android operating system.
+Please update to iOS version 11 (or higher) / Android 5.0 (or higher) as soon as possible.
+
+Instructions on how to update your iOS can be found on the Apple Support website.Instructions on how to update your Android version can be found on ', "Google's Support website", '.
+
+For more information on linking your account to a Supercell ID or transferring your game to a new device, please look at our Frequently Asked Questions.
+
+	
+						
+														
+    		The Clash Royale Team
+	
+						']
