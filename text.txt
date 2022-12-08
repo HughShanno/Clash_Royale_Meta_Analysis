@@ -1,0 +1,464 @@
+['
+														
+    		With the introduction of the Path of Legends, Leagues are moving away from the Trophy Road.So what will happen to your Trophies and your Profile Badges when the update goes live?
+	
+						
+														    WHEN THE UPDATE DROPS
+
+    		On October 26th (Update Day), we will perform a final reset of Trophies for all players in the current Leagues.This will be like a regular Season reset, so you will be able to collect rewards from 5000 Trophies and onwards again.But this time, instead of using your last Trophies count, we’ll use your Highest Trophies count, and Trophies count after the reset will be capped at 6600 Trophies. You will keep all of your previous badges and achievements, but the current Season will not count. Meaning that if you’re the number 1 player in Leagues when the reset happens on Oct. 26th, this will not be taken into account, and you will not receive the “Number 1” achievement/badge.This is because it is not a full Season.Your Highest Trophies and Best Season Rank (if you have one) will be displayed in the Player Profile’s new “Legacy” section.The Path of Legends will then be immediately available to play with a full set of rewards, but the Season will be much shorter than usual (12 days).
+	
+						
+														    WHEN THE FIRST FULL RANKED SEASON STARTS
+
+    		On November 7th, the first full Ranked Season in the Path of Legends will start, and your Trophies will not reset.You will be able to continue your journey on Trophy Road!In the Path of Legends, all players will be placed in Challenger I and receive Win Multipliers depending on their ranking at the end of the Teaser Season. Top finishers will also receive the appropriate Badge upgrade according to their final rank in the Teaser Season.View more information about the Path of Legends and Win Multipliers in the Update Article here!
+	
+						']['
+														
+    		Due to technical reasons beyond our control, in the next update to Clash Royale, we are unfortunately forced to end support for all Apple and Android devices running on OS versions lower than iOS 11 and Android 5.0.
+If your device is currently running on an operating system lower than iOS 11 or Android 5.0, you will no longer be able to play Clash Royale unless you update to a newer iOS or Android operating system.
+Please update to iOS version 11 (or higher) / Android 5.0 (or higher) as soon as possible.
+
+Instructions on how to update your iOS can be found on the Apple Support website.Instructions on how to update your Android version can be found on ', "Google's Support website", '.
+
+For more information on linking your account to a Supercell ID or transferring your game to a new device, please look at our Frequently Asked Questions.
+
+	
+						
+														
+    		The Clash Royale Team
+	
+						']['
+														
+    		These changes are now LIVE!
+	
+						
+														    CARD LIST
+
+    		Goblin Gang ☝️Elixir Golem ☝️Cannon 👇Cannon Cart 👇Royal Hogs 👇Mighty Miner 👇Mortar 👇Barbarian Hut 🔄Read all the changes and the reason for them below!
+	
+						
+														
+    		Spear Goblins count: ☝️ (2 -> 3)The greenest gang in the Arena has been relegated to a bottom-tier card for quite some time now. To help them regain their former glory, we’re bringing back the third Spear Goblin, who left the party five (!) years ago.
+	
+						
+														
+    		Attack speed: ☝️ (+15%, all forms)While we’re happy with its recent rework, the new elixir split left it a tiny bit underpowered. Increasing the Hit Speed of all three forms (Elixir Golem, Elixir Golemite, Elixir Blob) will make it more of a threat when he’s reached a Crown Tower.
+	
+						
+														
+    		Hitpoints: 👇 (-8%)
+	
+						
+														
+    		Hitpoints (of destroyed form): 👇 (-8%)
+	
+						
+														
+    		Cannon is currently one of the most popular buildings, thanks to its low elixir cost and good durability. We’re reducing its Hitpoints to make it more fragile and leave space for other defensive options.
+This change will also affect the destroyed form of the Cannon Cart.
+	
+						
+														
+    		First Hit: 👇 (-60% slower)Who let the Hogs out? These little piggies have proven to be quite powerful in the meta, most of the time requiring a perfect answer from the opponent so they don’t hit a Crown Tower. By delaying the first hit, defensive troops and Crown Towers will have a slightly larger window to destroy them.
+	
+						
+														
+    		Hitpoints: 👇 (-8%)The Mighty Miner has finally ended up in a strong place in the Arena. He’s a bit too mighty, as it turns out. We trimmed his mustache, which instantly reduced his Hitpoints.
+	
+						
+														
+    		Hitpoints: 👇 (-7%)
+In the past few months, the Mortar has been gaining in popularity and strength thanks to new decks emerging with the Skeleton King. By reducing its Hitpoints, it will remain less time on the field and will be more easily destroyable.
+	
+						
+														
+    		Elixir Cost: 👇 (7 -> 6) Spawn Speed: 👇 (11sec -> 15sec)Spawn Count: ☝️ (2 -> 3)Lifetime: 👇 (40sec -> 30sec)Spawn on Death: 👇 (Barbarian x2 -> Barbarian x1)Total Barbarians spawned: 👇 (10 -> 8)The cozy Barbarian Hut has been the worst card in the game for a long time. We’re talking Heal spell levels of bad!
+While we think that a “spawner meta” (Barb Hut, Goblin Hut, Furnace, Tombstone) makes the game more defensive and less fun, we also don’t want to leave this card in the depths of the Arena … and we definitely do not want to see a Barb Spirit!
+
+This rework aims to encourage more aggressive plays with the Barbarian Hut by removing its defensive potential through various changes, while providing more value if it stays untouched.
+	
+						
+														
+    		These changes are now LIVE!
+As always, let us know your thoughts and feedback on our social channels here:
+
+Twitter
+Youtube
+Reddit
+Instagram
+Facebook
+See you in the Arena!
+
+The Clash Royale Team
+
+	
+						']['
+														
+    		Hey everyone!
+', "We're here to grant you YOUR Ticket to the ", 'Clash Royale League World Finals!
+The event will be hosted live on our "Clash Fest Hub" where you can watch and interact with the event while earning incredible rewards!
+Go and check it now! 👉 event.clashroyale.com
+	
+						
+														
+    		The more you interact, the more rewards you can obtain! Watching the stream, interacting with the platform, and giving your matches predictions will give you points, AND it works for both Clash Royale and Clash of Clans!
+What can you earn? Take a look 👀👇
+	
+						
+														
+    		The show times and dates of the event are:
+	
+						
+														
+    		IMPORTANT:
+To participate and obtain rewards, you will need to
+1) Sign up with Supercell ID [See More Here]
+2) Join the streams when we are live and interact to earn the points needed to collect them.
+Connect to a SCID account now to be ready for all the action!
+	
+						
+														
+    		Please note: 
+Once you collect a reward, it can take up to 1 hour for them to arrive in your game.
+	
+						
+														    WATCH PARTIES RULE!
+
+    		', "We've planned some cool watch party locations where you can enjoy the finals together.", '
+If you are close by, it could be a great place to enjoy the show with others.
+You can find all the viewing parties and their location HERE!
+	
+						
+														
+    		Good luck to all of the finalists!
+', "We can't wait to watch the finals with you!", '
+See you in the Arena!
+	
+						']['
+														
+    		The Clash Royale League World Finals are this weekend! And to make the event even more special, we’ve planned some cool watch party locations where you can enjoy the finals livestreams. If you’re close by, these could be a great place to enjoy the show!
+	
+						
+														
+    		Jakarta, Indonesia - INSTAGRAM
+Venue: MALACCA TOAST KEDOYA
+Address: Jl. Panjang No.1-2, RT.10/RW.1, Kedoya Sel., Kec. Kb. Jeruk, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11520, Indonesia - See on Google Maps
+Dates: 23.09 / 24.09 / 25.09 
+Doors open: 14:00~01:00
+Stream starts: 20:00
+Signup: HEREManila, Philippines - INSTAGRAM
+
+Venue: Flight 88
+Address: 22, 1103 Scout Borromeo St, Diliman, Quezon City, Metro Manila, Philippines - See on Google Maps
+Dates: 23.09 / 24.09 / 25.09
+Doors open: 15:00~02:00
+Stream starts: 21:00
+Signup: HERESingapore - INSTAGRAM
+
+Venue: Pop Mart Flagshipstore
+Address: Pop Mart Flagship store Funan, #01-02 - See on Google Maps
+Dates: 23.09 / 24.09 / 25.09
+Doors open: 23rd and 24th: 16:00 ~ 20:00 (25th:16:00 ~ 18:00)
+Stream starts: 21:00
+No signup needed
+Taipei, Taiwan - INSTAGRAM
+
+Venue: Borges Place
+Address: No. 441, Mingshui Rd., Zhongshan Dist., Taipei City, Taiwan - See on Google Maps
+Dates: 24.09 / 25.09
+Doors open: 15:00~02:00
+Stream starts: 21:00
+Signup: HERETokyo, Japan
+Venue: Akihabara Esports Square
+Address: Box’R AKIBA Bldg 2F, SotoKanda, Chiyoda-ku, Tokyo - See on Google MapsDates: 24.09 / 25.09
+Doors open: 15:00 - 6:00
+Stream starts: 22:00
+Signup: HEREBerlin, Germany
+
+Venue: LvL Gaming
+Address: Schützenstraße 73, 10117 Berlin, Germany - See on Google Maps
+Dates: 23.09 / 24.09 / 25.09
+Doors open: 09:00~02:00
+Stream starts: 15:00
+No signup needed
+London, U.K. - INSTAGRAM
+
+Venue: Melt Down
+Address: 342 Caledonian Rd, London N1 1BB, United Kingdom - See on Google Maps
+Dates: 23.09 / 24.09 / 25.09
+Doors open: 08:00~02:00
+Stream starts: 14:00
+No signup needed
+Madrid, Spain - INSTAGRAM
+
+Venue: Elite Gaming Center
+Address: Príncipe de Vergara 90, 28006 Madrid, Spain - See on Google Maps
+Dates: 23.09 / 24.09 / 25.09
+Doors open: 09:00~22:00
+Stream starts: 15:00
+No signup needed
+Paris, France - INSTAGRAM
+
+Venue: Melt Down
+Address: 33 Bd Richard-Lenoir, 75011 Paris, France - See on Google Maps
+Dates: 23.09 / 24.09 / 25.09
+Doors open: 09:00~02:00
+Stream starts: 15:00
+No signup needed
+Rome, Italy - INSTAGRAM
+
+Venue: White Rabbit
+Address: Via Spalato, 35/37/39, 00198 Roma RM, Italie - See on Google Maps
+Dates: 23.09 / 24.09 / 25.09
+Doors open: 09:00~02:00
+Stream starts: 15:00
+No signup needed
+	
+						
+														
+    		Good luck to all the finalists and we can’t wait to watch the finals with you!
+
+See you in the Arena!
+	
+						']['
+														
+    		Clash Fest is a full month-long Clash celebration that will feature unique in-game and out-of-game events in both Clash Royale and Clash of Clans games!
+', "Let's celebrate the biggest Clash event of the year with many fantastic prizes. Get ready to put your skills to the test with 7 in-game Challenges - each one focused on a different theme- and enjoy the exclusive content pieces on our social media pages, such as documentaries, behind-the-scenes, intros of the week, creator events, Q&A, and more! 
+", '
+Are you an esports fan? We got you! 
+
+The Clash Fest will cover all the events related to the World Finals, which will be hosted in Helsinki, Finland, between September 23-25th!
+
+', "We'll keep you posted as the time progresses, but for now, let's focus on the 7 in-game Challenges.
+", '
+	
+						
+														    7 CLASH FEST CHALLENGES
+
+    		There will be a total of 7 unique Challenges throughout September and early October. Each one will have a special prize which will be raffled to any person attempting each of the challenges. 
+Yes, even by just trying once!
+
+	
+						
+														    Thursday September 1st:
+
+    		#1 Challenge: Triple Elixir Challenge
+EMOTE: Complete the challenge and earn the Party Elixir Golem Emote. 
+Raffle prize: Tickets, flights and hotels to World Finals in Helsinki for the winner + 1 friendWINNER: Player "kimjun" is the raffle winner and is on the way to the world finals!
+	
+						
+														    Monday September 5th:
+
+    		#2 Challenge: Retro Royale Challenge
+EMOTE: Complete the challenge and earn the Goblin Carnival Emote
+Raffle prize: Limited edition Golden P.E.K.K.A signed by CR team and an iPad
+	
+						
+														    Monday September 12th:
+
+    		#3 Challenge: Duel Challenge
+EMOTE: Complete the challenge and earn the Self Heal Emote
+
+	
+						
+														    Friday September 16th:
+
+    		#4 Challenge: 2v2
+EMOTE: Complete the challenge and earn the Epic High Five Emote
+Raffle prize: Clash Royale merch boxes to the winner and their clan mates
+
+	
+						
+														    Monday September 19th:
+
+    		#5 Challenge: Ban-Pick Duels
+EMOTE: Complete the challenge and earn the All Seeing Emote
+
+	
+						
+														    Friday September 23rd:
+
+    		#6 Challenge: Sudden Death
+EMOTE: Complete the challenge and earn the Watching You Emote
+Raffle prize: 10 winners will receive Clash Royale Esports Merch 
+
+	
+						
+														    Monday September 26th - October 2nd
+
+    		#7 Challenge: Ramp Up
+EMOTE: Complete the challenge and earn the High Voltage Emote
+
+	
+						
+														
+    		NOTE: The winner must be able to travel to the World Finals which will take place on September 23rd-25th in Helsinki, Finland.ALL winners will receive an in-game message (in your in-game inbox under the social icon) and MUST reply within 24 hours to confirm their prize. If the winner doesn’t reply, then the prize will be raffled again until an eligible winner is found.
+	
+						
+														
+    		', "It's time to Clash for glory, rewards and a ton of fun! ", '
+LET THE GAMES BEGIN!
+
+	
+						']['
+														    Get ready!
+
+    		The hardest and most skillful challenge is back again, this time as an official route for the Clash Royale World Finals!
+Will you have what it takes to win 20 games of Clash Royale with less than 3 losses?
+	
+						
+														    WHEN?
+
+    		The Challenge will kick off on Saturday, August 6th, and will last for 5 days:
+Starts: 6th of August @ 08:00 UTC
+Ends: 11th of August @ 08:00 UTC
+	
+						
+														    HOW TO PLAY?
+
+    		Simply head to the Events tab!
+
+Every player gets 3 free entries
+3 losses and you are out
+You can re-enter the Challenge for 10 Gems
+Pass Royale players get unlimited free entries to the 20-Win Challenge
+Challenge progress will reset with each new entry (0 wins/0 losses)
+You can win 1 Epic Chest, 1 Legendary King Chest, and up to 215k Gold!
+	
+						
+														    WIN AN EXCLUSIVE BADGE!
+
+    		If you reach 17 victories or more, you will unlock the CRL 20-Win Challenge 2022 badge! You will be able to display it in your Battle Banner and your profile as eternal proof of your skill.
+	
+						
+														
+    		This year, any player who completes the 20-Win Challenge will be able to register for the next Clash Royale League stage in the in-game Tournament Hub!
+Players competing in the Tournament Hub will gain or lose ladder rank based on winning or losing matches. They will be able to play up to 10 matches within any 24 hours period, and once the ladder play period ends, the top 128 players will advance to Stage 3.
+More information about the Clash Royale League and the next stages can be found HERE!
+	
+						
+														
+    		Good luck with the Challenge, and see you in the Arena!The Clash Royale Team
+	
+						']['
+														
+    		Hey SML! Can you introduce yourself to the players? When did you start playing Clash Royale?Hello, my name is See-ming Lee, but most people know me by my initials SML. I am the founder of RoyaleAPI.
+In my professional life, I am a User Experience (UX) Designer and Technologist. I have spent more than 25 years working at the intersection of art and technology in interactive media. I graduated from Yale in 1999, which gives you a clue about how old I am, not that age matters, of course. I currently reside in Hong Kong but have spent 17 years living in the US. I first picked up Clash Royale in 2016 while vacationing in Scotland, and the rest is history…
+
+What is RoyaleAPI?
+RoyaleAPI is a website that we have built to help players in countless ways, as well as enhance their Clash Royale experience. We have a variety of tools that are available to help everybody playing the game, from beginners to world-class professionals. 
+New players generally use the simpler features like seeing their upcoming chests.
+Intermediate players and CR veterans tend to explore deeper, using more advanced features like our Clan War tools, or keeping up to speed with coverage of game updates.
+The professionals trust our esports database to log all the relevant achievements in their careers. Further to this, we have established ourselves as the top destination used in the competitive scene, and our services are essential for any professional players or analysts looking to succeed at any level, from semi-pro to the million-dollar Clash Royale League.
+
+What would you say is the main purpose of RoyaleAPI? 
+I see RoyaleAPI as the Swiss Army Knife of Clash Royale. Our aim is to provide any player, casual or pro, with the tools they need to play, learn and excel at the game. We specialize in finding great decks, perhaps the most critical aspect of Clash Royale. Our comprehensive range covers deck needs for Ladder as well as the variety of decks required to make special challenges as easy as possible. 
+As with most card games, having a good deck is the basis for a winning strategy, and we can proudly say that many players trust RoyaleAPI to find it.
+
+
+How did it start?Officially, the founding date of RoyaleAPI is July 28, 2017 — this is the date when the first line of code was checked into our git repo. We are approaching our 5-year anniversary!
+In the summer of 2017, we released a public API tool that enabled anyone to develop custom applications for the game. The largest project which came from the initial API was our flagship website: RoyaleAPI.com — a proof-of-concept for data analysis. The website served as a means to encourage new projects and to demonstrate the capability of our API. Over time we’ve developed an unmatched database of analytical data to support the casual and competitive community.
+
+Eventually, Supercell released an official API, and although this made our API service redundant, our site was still useful to many players. We realized we could keep working on it to create features that no one else was capable of developing, and we’ve kept doing that ever since.
+
+How many people are working on RoyaleAPI? 
+Our team is made up of two core members and a huge roster of volunteers. I am the only person who works full-time on the project. Alpe123 (Alvaro Peña), our Director of Esports, spends about 20 hours per week on the site. Other members of the core team participate in important discussions and brainstorming sessions. We also work with several data scientists on data-intensive projects, and a huge team of translators who help put our site into 14 different languages.
+
+What’s your favorite feature or part of RoyaleAPI? 
+I am most proud of the monthly balance changes infographic which I first started creating for the entire community a few years ago. Prior to us starting the trend of a single image summary, many creators had demonstrated balance changes using before/after animation. While those videos are useful on the micro-level, I find that the macro view is often missing. The popularity of this single image can be seen by the thousands of upvotes it receives on social media, as well as a plethora of shares. 
+I have also commenced making short videos each month about the upcoming seasons. Although videos are not traditionally part of our main content channels, I have worked my passion for animation into the mix to create a condensed video, usually under two minutes, to give a bird’s eye view of the upcoming season. 
+
+In terms of functional features in RoyaleAPI, I’m most proud of being able to create several unique features which nobody else provides:
+
+Real-time deck search with an exhaustive list of options, card filters, and game modes.
+Matchup - a tool that shows the likelihood of a deck to succeed against other decks.
+Replay - a timeline view of the game which shows detailed statistics about the game and gives a post-game analysis.
+	
+						
+														
+    		Any cool or fun facts that you can share?I can often tell if a pro player is playing in an important esports event without knowing about it in advance.
+
+When that happens, real-time page views of their battle logs will always spike. It’s also easy to see when a special deck challenge is happening because so many people will search decks for those events. For example, most recently I was alerted of an “anomaly” where deck searches for “The Floor is Healing” were 332,540% more than predicted. As most people have learned, I’m a bit of a nerd, so this kind of data is my idea of fun…
+
+What’s your favorite moment in CR history?
+When Clash Royale switched to simplified levels.
+
+Looking back, it must have been challenging for newcomers to grasp the concept of 9/7/4/1. If you look at old videos of Clash Royale, I’m still surprised how we managed to understand that max levels were: 13 common, 11 rare, 8 epic, 5 legendary. It seems second nature now, but it was quite frankly demanding on the brain. Well, my brain anyway, so I really appreciated that change.
+
+Can you share/tease any new features you are working on?
+There are a couple of high-level features that we are working on right now, which we hope to release soon.
+
+Duel search - This is somewhat challenging because the duel set combinations are not easily composed, and we have decided that it likely won’t give any meaningful results if we grab 4 actual decks that people use — the probability of players using the exact 4 decks for war is so low that it would not be statistically meaningful. Rather, we are using some fairly advanced methodology to compose duel sets based on decks’ win rates and use rates. Doing this allows us to find high-performing decks without anyone actually having played the exact set before.
+
+Badge Leaderboard - In addition to the in-game badges, we have implemented many custom badges for players. Noting that players are extra motivated by ranks and bragging rights, we plan to turn most of these custom achievements into full leaderboards.
+
+What is your creator code?
+Our creator code is RoyaleAPI — btw, you can type all the letters in lower case if you like!
+
+	
+						
+														
+    		You can support RoyaleAPI by using the code RoyaleAPI in the shop, and by following them on:
+TwitterYoutubeFacebookInstagramRedditAnd of course, the RoyaleAPI website.
+	
+						']['
+														
+    		These changes are LIVE!
+CARD LIST
+
+Mother Witch ☝️Electro Giant ☝️ Night Witch ☝️Barbarians ☝️Goblin Drill 👇
+Skeleton King 👇The Log 👇Royal Ghost 👇Barbarian Barrel 🔄Read all the changes and the reason for them below!
+
+	
+						
+														
+    		Hit Speed: ☝️ (+9% faster) First Hit: ☝️ (+25% faster) The last balance change caused her use and win rates to plummet. This buff counters the previous Hitpoints nerf with a DPS increase, allowing her to churn out those Cursed Hogs even faster!
+	
+						
+														
+    		Hitpoints: ☝️ (+9%)The latest rework made him a bit too fragile, even with a lower Elixir cost. Adding more Hitpoints allows him to still keep the title of ‘Giant’.
+Note - this change is roughly halfway between its old 8 Elixir Hitpoint values and his current.
+	
+						
+														
+    		Hit Speed: ☝️ (+13% faster)Since the removal of her Death Spawn Bats, she struggles to find her place in a meta. We are increasing her very slow Hit Speed to emphasize her role as a dual support/Damage dealer.
+	
+						
+														
+    		Hit Speed: ☝️ (7% faster)(affects Barbarians, Battle Ram, Barbarian Hut, Barbarian Barrel)
+The above-mentioned cards have all been on the weaker side for a while, however, the Barb Barrel has been solid. Now with the Barrel range nerf (see at the bottom) there’s an opportunity to buff all 4 Barbarian cards in the game and hopefully bring their use/win rate up a bit!
+	
+						
+														
+    		Travel Speed: 👇 (25% slower)Apparently all the extra tunnels the Mighty Miner has been digging have been allowing the Drill to travel faster than usual! Fresh soil has been packed into the Arena to slow those Goblins down.(Translation: A recent change to the Mighty Miner’s mechanic had a knock-on effect, and turned out to accidentally increase the Goblin Drill’s speed. This has now been fixed.)
+	
+						
+														
+    		Soul Summoning Ability: 👇 (Max. Skeleton count 20 -> 18)The undisputed King of Bones has become a Champion that puts too much pressure on the opponent when he has collected enough souls. We’ve asked him to chill out on the whole ‘summon endless hordes of the undead’ thing he has going on.
+	
+						
+														
+    		Damage dealt to Crown Towers: 👇 30% -> 20% (-33%)This piece of sentient wood has been the most used card in the game for a long time because of its versatility and power. The time has come for it to receive a nerf!Thanks to player feedback, we decided to keep its knockback ability as it was but reduced its Crown Tower Damage. This means that it still keeps its Legendary knockback status whilst still being able to defeat log bait. The trade-off is that it won’t be able to deal as much Crown Tower Damage as other spells.
+	
+						
+														
+    		Invisibility cooldown: 👇 (1.6s -> 1.8s)This sleepy fella is a part of many strong meta decks and can provide a lot of value. Maybe a little too much. Allowing him to be visible for a little while longer can help to balance this.
+	
+						
+														
+    		Range: 👇 (5 -> 4.5)Alongside The Log, Barb Barrel has been one of the strongest cards in the game consistently for many months. The Range reduction will allow the Barbarian to only hit the tower once instead of twice if unanswered.
+	
+						
+														
+    		These changes are LIVE!
+As always, let us know your thoughts and feedback on our social channels here:
+Twitter
+Youtube
+Reddit
+Instagram
+Facebook
+See you in the Arena!
+
+The Clash Royale Team
+	
+						']

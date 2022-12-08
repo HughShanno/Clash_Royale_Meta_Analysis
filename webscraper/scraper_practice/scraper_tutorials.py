@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 url="https://oxylabs.io/"
 response = requests.get(url)
 
