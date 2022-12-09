@@ -58,7 +58,7 @@ def getCardData(title, path):
     url = f'https://clashroyale.fandom.com/{path}' 
     r = requests.get(url, headers = headers)
     soup = BeautifulSoup(r.text, 'html.parser')
-
+    print(url)
     for sibling in soup.find('table', id ='unit-attributes-table').tr.next_siblings:
         child = sibling.text
         statLine = [f'{title}'] + child.split('\n')
