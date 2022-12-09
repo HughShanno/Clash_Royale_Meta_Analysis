@@ -72,7 +72,7 @@ def secondaryTroop(title, path,file):
     r = requests.get(url, headers = headers)
     soup = BeautifulSoup(r.text, 'html.parser')
     result = soup.find("table", id ='unit-attributes-table-secondary')
-    print(result)
+    
 
     if result != None:
         for sibling in soup.find('table', id ='unit-attributes-table-secondary').tr.next_siblings:
@@ -82,6 +82,14 @@ def secondaryTroop(title, path,file):
         file.write(str(secondaryStat) + '\n')
     else:
         pass
+
+    if title == 'Elixir Golem':
+        tertiaryStat = [f'{title}']
+        for sibling in soup.find('table', id ='unit-attributes-table-tertiary').tr.next_siblings:
+            child = sibling.text
+            tertiaryStat += child.split('\n')
+            tertiaryStat = list(filter(None, secondaryStat))
+        file.write(str(tertiaryStat) + '\n')
 
 
 def main():
