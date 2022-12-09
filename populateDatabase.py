@@ -14,15 +14,8 @@ key contains a clash royale api key in string form
 psqlconfig contains 3 variables: database, user, and password, which must be set after the user creates themselves a database
 '''
 
-url = 'https://api.clashroyale.com/v1/'
-key = apikey.key
-params = {'Authorization': 'Bearer ' + key}
-response = requests.get(url + 'cards', params=params)
-print(response.json()['items'])
 
-
-
-class externalDataCollection():
+class externalDataCollector():
     '''
     This class provides the framework to populate a database with clash royale metadata
     '''
