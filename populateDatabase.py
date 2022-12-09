@@ -5,12 +5,33 @@ import psqlconfig as config
 import apikey
 
 
+'''
+apikey and psqlconfig are external files that contain secure variable inputs
+
+apikey contains one variable: key
+key contains a clash royale api key in string form
+
+psqlconfig contains 3 variables: database, user, and password, which must be set after the user creates themselves a database
+'''
+
+url = 'https://api.clashroyale.com/v1/'
+key = apikey.key
+params = {'Authorization': 'Bearer ' + key}
+response = requests.get(url + 'cards', params=params)
+print(response.json()['items'])
+
+
+
 class externalDataCollection():
-    
+    '''
+    This class provides the framework to populate a database with clash royale metadata
+    '''
+
+
     def __init__(self):
         conn = self.connect()
         self.cur = conn.cursor()
-        return
+        self.__createCards()
     
     def connect(self):
         '''
@@ -27,7 +48,30 @@ class externalDataCollection():
             exit()
         return connection
 
+    def __createCards(self):
+        '''
+        Populates the cards datatable in the database
+        '''
+        cards = self.__apicall('cards')
+        raritydict = {14: "Common", 12: "Rare", 9: "Epic", 6: "Legendary", 4: "Champion"}
+        for card in cards:
+            data = [card['id'],card['name'],card['iconUrls'],0,"1/1/2000",0,raritydict[card['maxLevel']],0,0]
+            self.__insertCard(data)
+
+    def __insertCard(self, data):
+        '''
+        Given cleaned information about a card, inserts the card into the cards datatable
+        '''
+        query = "INSERT INTO cards (cardID, cardName, cardImage, elixirCost, releaseDate, minTrophies, rarity, numGames, numWins) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+        try:
+            self.cur.execute(query, (data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]))
+        except Exception as e:
+            return e
+
     def __apicall(self, extension, extraparams={},items=True):
+        '''
+        Makes a call to the clash royale API based on the given url extension and parameters for the call
+        '''
         url = 'https://api.clashroyale.com/v1/'
         key = apikey.key
         params = {'Authorization': 'Bearer ' + key}
@@ -39,6 +83,9 @@ class externalDataCollection():
         return response.json()
 
     def __getTopClanTags(self, rating=73900):
+        '''
+        Collects the tags for every clan with a rating above the passed in rating, in order to collect the top clans
+        '''
         extension = 'clans'
         extraparams = {'minScore': rating}
         clans = self.__apicall(extension, extraparams)
@@ -50,6 +97,9 @@ class externalDataCollection():
         return clantags
 
     def __getTopPlayers(self, rating=73900):
+        '''
+        Collects the tags for each player in each clan with a rating above the input rating.
+        '''
         tags = self.__getTopClanTags(rating)
         players = []
         for tag in tags:
@@ -62,6 +112,10 @@ class externalDataCollection():
         return players
 
     def populateDatabaseWithBattles(self):
+        '''
+        The main function to be called in the class.
+        Collects the tags from top players, finds the battle data for each player, and adds the battle data into the database
+        '''
         players = self.__getTopPlayers()
         for player in players:
             extension = 'players/' + player + '/battlelog'
@@ -71,6 +125,9 @@ class externalDataCollection():
 
 
     def __addBattleToDataBase(self, battle):
+        '''
+        Given battle data, updates the database to account for the battle
+        '''
         for team in ['team','opponent']:
             data = self.__getPlayerData(battle,team)
             key = self.__addToDeckTable(data)
@@ -79,6 +136,9 @@ class externalDataCollection():
         return
 
     def __getPlayerData(self, battle, team):
+        '''
+        Strips useful data from battle data such as a player's deck, win, and trophy count
+        '''
         data = {}
         deck = []
         for card in battle[team][0]['cards']:
@@ -92,6 +152,10 @@ class externalDataCollection():
         return data
 
     def __addToDeckTable(self, data):
+        '''
+        Checks if a deck has already been recorded, and if not updates the table to insert the deck
+        returns the deckID associated with the deck
+        '''
         query = "SELECT deckID FROM cardsInDeck WHERE card1 = %s AND card2 = %s AND card3 = %s AND card4 = %s AND card5 = %s AND card6 = %s AND card7 = %s AND card8 = %s"
         deck = data['deck']
         try:
@@ -110,6 +174,9 @@ class externalDataCollection():
             return Exception
     
     def __addToDeckStats(self, data, key):
+        '''
+        Records the stats for each deck
+        '''
         query = "SELECT * FROM deckStats WHERE deckID = %s"
         row = []
         try:
@@ -117,7 +184,7 @@ class externalDataCollection():
             row = self.cur.fetchone()[0]
         except:
             row = [key,0,0,0,0]
-            query = "INSERT INTO deckStats (deckID, numWins, numGames, totalTrophies, maxTrophies), VALUES (%s,%s,%s,%s,%s)"
+            query = "INSERT INTO deckStats (deckID, numWins, numGames, totalTrophies, maxTrophies) VALUES (%s,%s,%s,%s,%s)"
             try:
                 self.cur.execute(query,(key,0,0,0,0))
             except Exception as e:
@@ -135,6 +202,9 @@ class externalDataCollection():
             return e
     
     def __addToCards(self, data):
+        '''
+        Adds battle data to the cards table, namely for win rate
+        '''
         for card in data['deck']:
             query = "SELECT * FROM cards WHERE cardID = %s"
             try:
