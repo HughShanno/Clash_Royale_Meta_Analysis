@@ -53,12 +53,14 @@ def getCardData(title, path):
     print(statLine)
 '''
 
+
+
 def getCardData(title, path):
     
     url = f'https://clashroyale.fandom.com/{path}' 
     r = requests.get(url, headers = headers)
     soup = BeautifulSoup(r.text, 'html.parser')
-    print(url)
+    # print(url)
     for sibling in soup.find('table', id ='unit-attributes-table').tr.next_siblings:
         child = sibling.text
         statLine = [f'{title}'] + child.split('\n')
@@ -66,43 +68,81 @@ def getCardData(title, path):
     
     return(statLine)
 
-def secondaryTroop(title, path,file):
-    secondaryStat = [f'{title}']
+def secondaryTroop(title, path):
+
     url = f'https://clashroyale.fandom.com/{path}' 
     r = requests.get(url, headers = headers)
     soup = BeautifulSoup(r.text, 'html.parser')
     result = soup.find("table", id ='unit-attributes-table-secondary')
     
-
-    if result != None:
+    if result is None:
+        pass            
+    else:
+        secondaryStat = [f'{title}']
         for sibling in soup.find('table', id ='unit-attributes-table-secondary').tr.next_siblings:
             child = sibling.text
             secondaryStat += child.split('\n')
             secondaryStat = list(filter(None, secondaryStat))
-        file.write(str(secondaryStat) + '\n')
-    else:
-        pass
+        
+        # This is poor form, I get it, but what are the odds they do the E-golem gimmick again?
 
-    if title == 'Elixir Golem':
-        tertiaryStat = [f'{title}']
-        for sibling in soup.find('table', id ='unit-attributes-table-tertiary').tr.next_siblings:
-            child = sibling.text
-            tertiaryStat += child.split('\n')
-            tertiaryStat = list(filter(None, secondaryStat))
-        file.write(str(tertiaryStat) + '\n')
+        if title == 'Elixir Golem':
+                tertiaryStat = [f'{title}']
+                for sibling in soup.find('table', id ='unit-attributes-table-tertiary').tr.next_siblings:
+                    child = sibling.text
+                    tertiaryStat += child.split('\n')
+                    tertiaryStat = list(filter(None, tertiaryStat))
+                secondaryStat += tertiaryStat
+        print(secondaryStat)
+        return(secondaryStat)
+    
 
+  
+    
 
-def main():
+# Return Primary Attributes as list
+def rpaal():
     cards = getCards()
-    file = open('stats.txt','w')
-    file2 = open('secondaryStats.txt', 'w')
+    cardAttributes = []
+    secondaryCardAttributes = []
     for card in cards:
-        stats = getCardData(card['title'],card['link'])
-        secondaryStats = secondaryTroop(card['title'],card['link'], file2)
-        file.write(str(stats) + '\n')
+        secondary = secondaryTroop(card['title'],card['link'])
+        if secondary is not None:
+            secondaryCardAttributes += secondary
+        else:
+            pass
+    
+        cardAttributes += getCardData(card['title'],card['link'])
+
+    return([cardAttributes, secondaryCardAttributes])
+
+    
+
+def writeStatsToFile():
+    cards = getCards()
+    file = open('attributes.txt','w')
+    file2 = open('secondaryAttributes.txt', 'w')
+    for card in cards:
+        stats = getCardData(card['title'],card['link'])      
+        statsFinal = list(filter(None, stats))
+        secondaryStats = secondaryTroop(card['title'],card['link'])
+
+        if  secondaryStats is not None:
+            file2.write(str(secondaryStats) + '\n')
+        else:
+            pass
+
+        file.write(str(statsFinal) + '\n')
+       
         
         
     file.close()
+
+def main():
+    print(rpaal())
+    #writeStatsToFile()
+   
+
 
 
 if __name__ == '__main__':
