@@ -24,7 +24,10 @@ class externalDataCollector():
     def __init__(self):
         conn = self.connect()
         self.cur = conn.cursor()
-        self.__createCards()
+        self.__createTables('createTables.sql')
+        numcards = self.__createCards()
+        self.__createCatchall(numcards)
+        #need to add functionality for remaining card statistics
     
     def connect(self):
         '''
@@ -41,6 +44,21 @@ class externalDataCollector():
             exit()
         return connection
 
+    def __createTables(self, filename):
+        '''
+        runs the createTables script to create all relevant database tables from scratch
+        '''
+        fd = open(filename, 'r')
+        sqlFile = fd.read()
+        fd.close()
+        sqlCommands = sqlFile.split(';')
+
+        for command in sqlCommands:
+            try:
+                self.cur.execute(command)
+            except Exception as e:
+                print("Command skipped: ", e)
+
     def __createCards(self):
         '''
         Populates the cards datatable in the database
@@ -50,6 +68,7 @@ class externalDataCollector():
         for card in cards:
             data = [card['id'],card['name'],card['iconUrls'],0,"1/1/2000",0,raritydict[card['maxLevel']],0,0]
             self.__insertCard(data)
+        return len(cards)
 
     def __insertCard(self, data):
         '''
@@ -59,7 +78,20 @@ class externalDataCollector():
         try:
             self.cur.execute(query, (data[0],data[1],data[2],data[3],data[4],data[5],data[6],data[7],data[8]))
         except Exception as e:
-            return e
+            print("Insertion Error:",e)
+            exit()
+    
+    def __createCatchall(self, numcards):
+        '''
+        Creates the catchall table given the number of cards in order to automaticall populate one column
+        '''
+        query = "INSERT INTO catchall (id, numMatches, numCards, numPlayers, numDecks) VALUES (0,0,%s,0)"
+        try:
+            self.cur.execute(query, numcards)
+        except Exception as e:
+            print("Error creating catchall:",e)
+            exit()
+
 
     def __apicall(self, extension, extraparams={},items=True):
         '''
@@ -110,11 +142,34 @@ class externalDataCollector():
         Collects the tags from top players, finds the battle data for each player, and adds the battle data into the database
         '''
         players = self.__getTopPlayers()
+        numMatches = 0
         for player in players:
             extension = 'players/' + player + '/battlelog'
             battles = self.__apicall(extension,items=False)
             for battle in battles:
                 self.__addBattleToDataBase(battle)
+                numMatches += 1
+        self.__updateNumMatches(numMatches)
+
+
+    def __updateNumMatches(self,numMatches=1):
+        '''
+        Updates the total number of matches by the passed amount
+        '''
+        query = "SELECT numMatches FROM catchall"
+        try:
+            self.cur.execute(query)
+            curmatches = self.cur.fetchone()[0]
+        except Exception as e:
+            print("Data aggregation access error:", e)
+            exit()
+        
+        query = "UPDATE catchall SET numMatches = %s WHERE id = 0"
+        try:
+            self.cur.execute(query, numMatches+curmatches)
+        except Exception as e:
+            print("Data aggregation update error:",e)
+            exit()
 
 
     def __addBattleToDataBase(self, battle):
@@ -127,6 +182,7 @@ class externalDataCollector():
             self.__addToDeckStats(data,key)
             self.__addToCards(data)
         return
+
 
     def __getPlayerData(self, battle, team):
         '''
@@ -160,12 +216,34 @@ class externalDataCollector():
         
         query = "SELECT deckID FROM cardsInDeck WHERE card1 = %s AND card2 = %s AND card3 = %s AND card4 = %s AND card5 = %s AND card6 = %s AND card7 = %s AND card8 = %s"
         deck = data['deck']
+        self.__updateNumDecks()
         try:
             self.cur.execute(query, (deck[0],deck[1],deck[2],deck[3],deck[4],deck[5],deck[6],deck[7]))
             return self.cur.fetchone()[0]
         except Exception as e:
-            return Exception
+            print("Insertion Error:",e)
+            exit()
     
+    def __updateNumDecks(self):
+        '''
+        Increments the number of decks by one
+        '''
+        query = "SELECT numDecks FROM catchall"
+        try:
+            self.cur.execute(query)
+            numDecks = self.cur.fetchone()[0]
+        except Exception as e:
+            print("Data aggregation access error:", e)
+            exit()
+        
+        query = "UPDATE catchall SET numDecks = %s WHERE id = 0"
+        try:
+            self.cur.execute(query, numDecks+1)
+        except Exception as e:
+            print("Data aggregation update error:",e)
+            exit()
+
+
     def __addToDeckStats(self, data, key):
         '''
         Records the stats for each deck
@@ -181,7 +259,8 @@ class externalDataCollector():
             try:
                 self.cur.execute(query,(key,0,0,0,0))
             except Exception as e:
-                return e
+                print("Insertion Error:", e)
+                exit()
         
         row[1] = row[1] + data['win']
         row[2] = row[2] + 1
@@ -192,7 +271,8 @@ class externalDataCollector():
         try:
             self.cur.execute(query, (row[1],row[2],row[3],row[4],row[0]))
         except Exception as e:
-            return e
+            print("Updating Error:", e)
+            exit()
     
     def __addToCards(self, data):
         '''
@@ -204,13 +284,14 @@ class externalDataCollector():
                 self.cur.execute(query, card)
                 row = self.cur.fetchone()
             except Exception as e:
-                return e
+                print("Card missing error:", e)
+                exit()
             query = "UPDATE cards SET numWins = %s, numGames = %s WHERE cardID = %s"
             try:
                 self.cur.execute(query, (row[0]+data['win'],row[1]+1,card))
             except Exception as e:
-                return e
-        return
+                print("Updating Error:", e)
+                exit()
 
         
 

@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS cardsInDeck;
 DROP TABLE IF EXISTS deckStats;
 DROP TABLE IF EXISTS catchall;
 
-CREATE TABLE cards {
+CREATE TABLE cards (
     cardID text,
     cardName text,
     cardImage text,
@@ -12,17 +12,26 @@ CREATE TABLE cards {
     minTrophies int,
     rarity text,
     numGames int,
-    numWins int
-};
+    numWins int,
+    damage int,
+    dps float,
+    hitpoints int,
+    hitspeed float,
+    targets text,
+    speed float,
+    hitrange float,
+    deployTime float,
+    units int
+);
 
-CREATE TABLE catchall {
+CREATE TABLE catchall (
+    id int,
     numMatches int,
     numCards int,
-    numPlayers int,
     numDecks int
-};
+);
 
-CREATE TABLE cardsInDeck {
+CREATE TABLE cardsInDeck (
     deckID serial primary key,
     card1 int,
     card2 int,
@@ -32,12 +41,12 @@ CREATE TABLE cardsInDeck {
     card6 int,
     card7 int,
     card8 int
-};
+);
 
-CREATE TABLE deckStats {
+CREATE TABLE deckStats (
     deckID serial foreign key REFERENCES cardsInDeck(deckID),
     numWins int,
     numGames int,
     totalTrophies int,
     maxTrophies int
-};
+);
