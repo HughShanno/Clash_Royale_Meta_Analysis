@@ -3,9 +3,12 @@
 
 # This is a scraper that exists in order to scrape card info from the clash royale wiki
 
+
+
+
+
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
 
 headers = {'User-Agent' : 
            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' }
@@ -37,23 +40,34 @@ def getCards():
 
 # Card name, elixir cost, rarity, Troop/Building/Spell, Arena Unlocked, Release date
 
-'''
-def getCardData(title, path):
-    statLine = f'{title}'
-    url = f'https://clashroyale.fandom.com/{path}'
 
-    r = requests.get(url, headers = headers)
-    soup = BeautifulSoup(r.text, 'html.parser')
-
-    stats = soup.find_all('div',{'class':['pi-data-value','pi-font']})
-
-    for stat in stats:
-        statLine += f', {stat.text}'
-
-    print(statLine)
-'''
+def getSpellAttributeTitles():
+    cards = getCards()
+    file = open('spellAttributes.txt','w')    
+    for card in cards:
+        statLine = []
+        name = card['title']
+        url = f'https://clashroyale.fandom.com/{name}' 
+        r = requests.get(url, headers = headers)
+        soup = BeautifulSoup(r.text, 'html.parser')
 
 
+        for sibling in soup.find('table', id ='unit-attributes-table').tr.next_siblings:
+            child = sibling.text
+            statLine = [card['title']] + child.split('\n')
+            statLine = list(filter(None, statLine))
+    
+        
+        if 'Spell' in statLine:
+            attributes = [card['title'], 'Cost']
+            for sibling in soup.find('table', id ='unit-attributes-table').th.next_siblings:
+                child = sibling.text
+                attributes += child.split('\n')
+                attributes = list(filter(None, attributes))
+
+            file.write(str(attributes) + '\n')
+            file.write(str(statLine) + '\n')
+            
 
 def getCardData(title, path):
     
@@ -139,8 +153,8 @@ def writeStatsToFile():
     file.close()
 
 def main():
-    print(rpaal())
-    #writeStatsToFile()
+    getSpellAttributeTitles()
+    #rpaal()
    
 
 
