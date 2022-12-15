@@ -163,7 +163,7 @@ def secondaryTroop(title, path):
 # Return Primary Attributes as list
 def rpaal():
 
-    # Returns all primary attributes of troops and secondary troops
+    # Returns all primary attributes of troops + buildings and secondary troops + buildings
 
     cards = getCards()
     cardAttributes = []
@@ -191,12 +191,19 @@ def rpaal():
 
 def writeStatsToFile():
 
-    # Created for testing purposes, writes all attributes into a file
+    # Created for testing purposes, writes all troop/building attributes into a file
     
     cards = getCards()
     file = open('attributes.txt','w')
     file2 = open('secondaryAttributes.txt', 'w')
     for card in cards:
+
+        troop = getCardData(card['title'],card['link'])
+
+        if troop == 'Spell':
+            pass
+        else:
+            file.write(str(troop) + '\n')
         
         secondaryStats = secondaryTroop(card['title'],card['link'])
 
@@ -214,8 +221,8 @@ def writeStatsToFile():
 def main():
     #writeStatsToFile()
     #getSpellAttributeTitles()
-    print(rpaal())
-    #print(getUniversalTraits())
+    #print(rpaal())
+    print(getUniversalTraits())
    
 
 
