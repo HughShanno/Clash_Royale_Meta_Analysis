@@ -20,6 +20,7 @@ headers = {'User-Agent' :
 def getCards():
     cards = []
     url = 'https://clashroyale.fandom.com/wiki/Card_Overviews'
+    
     r = requests.get(url, headers=headers)
 
     soup = BeautifulSoup(r.text, 'html.parser')
@@ -36,12 +37,50 @@ def getCards():
 
     return(cards)
 
-# returns a few stats on each card formatted as:
 
-# Card name, elixir cost, rarity, Troop/Building/Spell, Arena Unlocked, Release date
+
+def getUniversalTraits():
+
+    # getUniversalTraits: 
+
+    # returns immutable traits present in all cards as a list of lists, formatted as:
+
+    # Card name, elixir cost, rarity, Troop/Building/Spell, Arena Unlocked, Release date
+
+    cards = getCards()
+    traitsList = []
+
+    for card in cards:
+        name = card['title']
+        traits = [name]
+        url = f'https://clashroyale.fandom.com/{name}'
+        r = requests.get(url, headers = headers)
+        soup = BeautifulSoup(r.text, 'html.parser')
+
+        for sibling in soup.find_all('div',{'class':['pi-data-value','pi-font']}):
+            child = sibling.text
+            traits += child.split('\n')
+            traits = list(filter(None, traits))
+        print(traits)
+        
+        traitsList.append(traits)
+    
+    return(traitsList)
+
+
 
 
 def getSpellAttributeTitles():
+
+    # This came up because of complications with recording the attributes of spells
+
+    # The muppets over at the CR wiki didn't standardize how they ordered attributes
+
+    # So my solution was to write the order of the attributes and then the attributes in a matching order 
+    # into a document called spellAttributes.txt
+
+    # Ouputs order of attributes and then the corresponding attributes as two lists with matching [0] entries.
+
     cards = getCards()
     file = open('spellAttributes.txt','w')    
     for card in cards:
@@ -70,19 +109,26 @@ def getSpellAttributeTitles():
             
 
 def getCardData(title, path):
+
+    # This is the function that returns the data (not the titles) found in the attributes table of all cards on the CR Wiki
     
     url = f'https://clashroyale.fandom.com/{path}' 
     r = requests.get(url, headers = headers)
     soup = BeautifulSoup(r.text, 'html.parser')
-    # print(url)
+    print(url)
     for sibling in soup.find('table', id ='unit-attributes-table').tr.next_siblings:
         child = sibling.text
         statLine = [f'{title}'] + child.split('\n')
         statLine = list(filter(None, statLine))
     
-    return(statLine)
+    if 'Spell' in statLine:
+        return('Spell')
+    else:
+        return(statLine)
 
 def secondaryTroop(title, path):
+
+    # Function used to gather stats of secondary troops, which certain CR cards have as a mechanic
 
     url = f'https://clashroyale.fandom.com/{path}' 
     r = requests.get(url, headers = headers)
@@ -116,29 +162,42 @@ def secondaryTroop(title, path):
 
 # Return Primary Attributes as list
 def rpaal():
+
+    # Returns all primary attributes of troops and secondary troops
+
     cards = getCards()
     cardAttributes = []
     secondaryCardAttributes = []
     for card in cards:
+        
         secondary = secondaryTroop(card['title'],card['link'])
+
         if secondary is not None:
             secondaryCardAttributes += secondary
         else:
             pass
+
+        stats = getCardData(card['title'],card['link'])
+        if stats == 'Spell':
+            pass
+        else:
+            cardAttributes += stats
     
-        cardAttributes += getCardData(card['title'],card['link'])
+        
 
     return([cardAttributes, secondaryCardAttributes])
 
     
 
 def writeStatsToFile():
+
+    # Created for testing purposes, writes all attributes into a file
+    
     cards = getCards()
     file = open('attributes.txt','w')
     file2 = open('secondaryAttributes.txt', 'w')
     for card in cards:
-        stats = getCardData(card['title'],card['link'])      
-        statsFinal = list(filter(None, stats))
+        
         secondaryStats = secondaryTroop(card['title'],card['link'])
 
         if  secondaryStats is not None:
@@ -146,15 +205,17 @@ def writeStatsToFile():
         else:
             pass
 
-        file.write(str(statsFinal) + '\n')
+        
        
         
         
     file.close()
 
 def main():
-    getSpellAttributeTitles()
-    #rpaal()
+    #writeStatsToFile()
+    #getSpellAttributeTitles()
+    print(rpaal())
+    #print(getUniversalTraits())
    
 
 
