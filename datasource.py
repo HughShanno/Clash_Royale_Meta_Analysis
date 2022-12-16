@@ -23,13 +23,21 @@ class Datasource():
             exit()
         return connection
 
+    def sqlCommandRunner(self,query):
+        try:
+            self.cur.execute(query)
+            return self.cur.fetchone()
+        except Exception as e:
+            print(e)
+            exit()
+
     def getTopWinRates(self, number=5):
         '''
         Returns the [passed number] top win rate decks
         '''
         query = "SELECT numWins/numGames, deckID FROM deckStats ORDER BY numWins/numGames LIMIT %s"
         try:
-            self.cur.execute(query, number)
+            self.cur.execute(query, (number,))
             info = self.cur.fetchone()
         except Exception as e:
             print("Deck Collection Error:",e)
@@ -44,7 +52,7 @@ class Datasource():
         '''
         Returns the 3 top win rate decks that contain the passed card
         '''
-        query = "SELECT numWins/numGames, deckID FROM deckStats LEFT JOIN cardsInDeck ON deckStats.deckID = cardsInDeck.deckID AND (cardsInDeck.card1 = %s OR cardsInDeck.card2 = %s OR cardsInDeck.card3 = %s OR cardsInDeck.card4 = %s OR cardsInDeck.card5 = %s OR cardsInDeck.card6 = %s OR cardsInDeck.card7 = %s OR cardsInDeck.card8 = %s) ORDER BY numWins/numGames LIMIT 3"
+        query = "SELECT numWins/numGames, deckID FROM deckStats LEFT JOIN (SELECT deckID FROM cardsInDeck WHERE card1 = %s OR card2 = %s OR card3 = %s OR card4 = %s OR card5 = %s OR card6 = %s OR card7 = %s OR card8 = %s) AS p ON deckStats.deckID = p.deckID ORDER BY numWins/numGames LIMIT 3"
         try:
             self.cur.execute(query, (card,card,card,card,card,card,card,card))
         except Exception as e:
@@ -57,7 +65,7 @@ class Datasource():
         '''
         query = "SELECT card1,card2,card3,card4,card5,card6,card7,card8 FROM cardsInDeck WHERE deckID = %s"
         try:
-            self.cur.execute(query, deckID)
+            self.cur.execute(query, (deckID,))
             return self.cur.fetchone()
         except Exception as e:
             print("Incorrect Deck Error:", e)
@@ -93,7 +101,7 @@ class Datasource():
         Runs the given query on the given cardID and returns whatever the query returns
         '''
         try:
-            self.cur.execute(query, cardID)
+            self.cur.execute(query, (cardID,))
             return self.cur.fetchone()
         except Exception as e:
             print("Card not found error:",e)
@@ -119,7 +127,7 @@ class Datasource():
         '''
         query = "SELECT numWins, numGames, totalTrophies, maxTrophies FROM deckStats WHERE deckID = %s"
         try:
-            self.cur.execute(query, deckID)
+            self.cur.execute(query, (deckID,))
             return self.cur.fetchone()
         except:
             return None
@@ -157,3 +165,35 @@ class Datasource():
         elixirCost = elixirCost/8
 
         return {'win rate': info[0]/info[1], 'usage rate': info[1]/numGames, 'elixir cost': elixirCost, 'average trophies': info[2]/numGames, 'max trophies': info[3]}
+
+    
+    def getMostRecentCards(self, date):
+        '''
+        Gets a list of cards that were released after a date (ideally the date the user last played)
+        '''
+        query = "SELECT cardID FROM cards WHERE releaseDate > %s"
+        try:
+            self.cur.execute(query, (date,))
+            return self.cur.fetchone()
+        except Exception as e:
+            return None
+
+    def getLowestArena(self,deck):
+        '''
+        Takes in a deck and returns the lowest trophy count that a user can unlock the deck at
+        '''
+        lowest = 0
+        for card in deck:
+            query = "SELECT minTrophies FROM cards WHERE cardID = %s"
+            try:
+                self.cur.execute(query, (card,))
+                lowest = max(lowest, self.cur.fetchone())
+            except Exception as e:
+                print("Card Lookup Error:", e)
+                exit()
+        return lowest
+
+if __name__ == "__main__":
+    datasource = Datasource()
+    print(datasource.sqlCommandRunner("SELECT * FROM information_schema.tables;"))
+    print(datasource.getCardsInDeck(0))

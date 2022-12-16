@@ -2,9 +2,12 @@ DROP TABLE IF EXISTS cards;
 DROP TABLE IF EXISTS cardsInDeck;
 DROP TABLE IF EXISTS deckStats;
 DROP TABLE IF EXISTS catchall;
+DROP TABLE IF EXISTS troops;
+DROP TABLE IF EXISTS spells;
+DROP TABLE IF EXISTS buildings;
 
 CREATE TABLE cards (
-    cardID text,
+    cardID int,
     cardName text,
     cardImage text,
     elixirCost int,
@@ -13,16 +16,9 @@ CREATE TABLE cards (
     rarity text,
     numGames int,
     numWins int,
-    damage int,
-    dps float,
-    hitpoints int,
-    hitspeed float,
-    targets text,
-    speed float,
-    hitrange float,
-    deployTime float,
-    units int
+    cardType text
 );
+
 
 CREATE TABLE catchall (
     id int,
@@ -44,7 +40,7 @@ CREATE TABLE cardsInDeck (
 );
 
 CREATE TABLE deckStats (
-    deckID serial foreign key REFERENCES cardsInDeck(deckID),
+    deckID serial REFERENCES cardsInDeck(deckID),
     numWins int,
     numGames int,
     totalTrophies int,
