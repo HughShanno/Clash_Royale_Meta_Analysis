@@ -36,6 +36,9 @@ class externalDataCollector():
         print("Created Catchall")
         self.__updateCardStats()
         print("Updated Cards")
+        self.populateDatabaseWithBattles()
+        print("Populated Database with Battle data")
+        conn.commit()
         #need to add functionality for remaining card statistics
     
     def connect(self):
@@ -370,5 +373,4 @@ if __name__ == "__main__":
     start = time.time()
     create = externalDataCollector()
     print("Created Starting Stuff")
-    create.populateDatabaseWithBattles()
     print("Completed Database Setup; total time:", time.time()-start)
