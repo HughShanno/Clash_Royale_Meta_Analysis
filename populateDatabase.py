@@ -122,7 +122,7 @@ class externalDataCollector():
 
         # Card name, elixir cost, rarity, Troop/Building/Spell, Arena Unlocked, Release date
 
-        cards = self.getCards()
+        cards = self.__getCards()
         traitsList = []
         headers = {'User-Agent' : 
            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' }
@@ -142,7 +142,7 @@ class externalDataCollector():
         
         return(traitsList)
     
-    def getCards(self):
+    def __getCards(self):
         cards = []
         url = 'https://clashroyale.fandom.com/wiki/Card_Overviews'
         headers = {'User-Agent' : 
@@ -245,7 +245,7 @@ class externalDataCollector():
         '''
         Updates the total number of matches by the passed amount
         '''
-        query = "UPDATE catchall SET numMatches = numMatches + 1 WHERE id = 0"
+        query = "UPDATE catchall SET numMatches = numMatches + 2 WHERE id = 0"
         try:
             self.cur.execute(query)
         except Exception as e:
@@ -329,12 +329,10 @@ class externalDataCollector():
         Records the stats for each deck
         '''
         query = "SELECT * FROM deckStats WHERE deckID = %s"
-        row = []
         try:
-            self.cur.execute(query, key)
-            row = self.cur.fetchone()[0]
+            self.cur.execute(query, (key,))
+            row = self.cur.fetchone()
         except:
-            row = [key,0,0,0,0]
             query = "INSERT INTO deckStats (deckID, numWins, numGames, totalTrophies, maxTrophies) VALUES (%s,%s,%s,%s,%s)"
             try:
                 self.cur.execute(query,(key,0,0,0,0))
@@ -342,14 +340,17 @@ class externalDataCollector():
                 print("Insertion Error:", e)
                 exit()
         
-        row[1] = row[1] + data['win']
-        row[2] = row[2] + 1
-        row[3] = row[3] + data['trophyCount']
-        row[4] = max(row[4], data['trophyCount'])
+        if not row:
+            query = "INSERT INTO deckStats (deckID, numWins, numGames, totalTrophies, maxTrophies) VALUES (%s,%s,%s,%s,%s)"
+            try:
+                self.cur.execute(query,(key,0,0,0,0))
+            except Exception as e:
+                print("Insertion Error:", e)
+                exit()
 
-        query = "UPDATE deckStats SET numWins = %s, numGames = %s, totalTrophies = %s, maxTrophies = %s WHERE deckID = %s"
+        query = "UPDATE deckStats SET numWins = numWins + %s, numGames = numGames + 1, totalTrophies = totalTrophies + %s, maxTrophies = %s WHERE deckID = %s"
         try:
-            self.cur.execute(query, (row[1],row[2],row[3],row[4],row[0]))
+            self.cur.execute(query, (data['win'],data['trophyCount'],data['trophyCount'],key))
         except Exception as e:
             print("Updating Error:", e)
             exit()

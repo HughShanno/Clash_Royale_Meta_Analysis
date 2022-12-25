@@ -23,41 +23,47 @@ class Datasource():
             exit()
         return connection
 
-    def sqlCommandRunner(self,query):
-        try:
-            self.cur.execute(query)
-            return self.cur.fetchone()
-        except Exception as e:
-            print(e)
-            exit()
 
-    def getTopWinRates(self, number=5):
+    def getTopDeckWinRates(self, number=5):
         '''
         Returns the [passed number] top win rate decks
         '''
-        query = "SELECT numWins/numGames, deckID FROM deckStats ORDER BY numWins/numGames LIMIT %s"
+        query = "SELECT numWins/numGames, deckID FROM deckStats ORDER BY numWins/numGames DESC LIMIT %s"
         try:
             self.cur.execute(query, (number,))
-            info = self.cur.fetchone()
+            info = self.cur.fetchall()
         except Exception as e:
             print("Deck Collection Error:",e)
             exit()
-        
         data = []
         for line in info:
             data.append({'win rate': line[0], 'cards': self.getCardsInDeck(line[1])})
         return data
 
-    def getTopCardWinRates(self,card):
+
+    def getTopWinRatesWithCard(self,card):
         '''
         Returns the 3 top win rate decks that contain the passed card
         '''
         query = "SELECT numWins/numGames, deckID FROM deckStats LEFT JOIN (SELECT deckID FROM cardsInDeck WHERE card1 = %s OR card2 = %s OR card3 = %s OR card4 = %s OR card5 = %s OR card6 = %s OR card7 = %s OR card8 = %s) AS p ON deckStats.deckID = p.deckID ORDER BY numWins/numGames LIMIT 3"
         try:
             self.cur.execute(query, (card,card,card,card,card,card,card,card))
+            return self.cur.fetchall()
         except Exception as e:
             return "Card is not used in any decks"
-        return
+
+    def getTopCardWinRates(self, number = 5):
+        '''
+        Returns the cards with the top win rate
+        '''
+        query = "SELECT numWins/numGames*100, cardID FROM cards ORDER BY numWins/numGames*100 DESC LIMIT %s"
+        try:
+            self.cur.execute(query, (number,))
+            return self.cur.fetchall()
+        except Exception as e:
+            print("Card collection error:", e)
+            exit()
+
 
     def getCardsInDeck(self,deckID):
         '''
@@ -85,7 +91,14 @@ class Datasource():
         Returns the elixir cost for a card with the given ID
         '''
         query = "SELECT elixirCost FROM cards WHERE cardID = %s"
-        return self.getCardInfo(query, cardID)
+        return self.getCardInfo(query, cardID)[0][0]
+
+    
+    def getDeckElixirCost(self,deck):
+        res = 0
+        for card in deck:
+            res += self.getCardElixirCost(card)
+        return res/8
 
 
     def getCardDisplayInfo(self, cardID):
@@ -102,7 +115,7 @@ class Datasource():
         '''
         try:
             self.cur.execute(query, (cardID,))
-            return self.cur.fetchone()
+            return self.cur.fetchall()
         except Exception as e:
             print("Card not found error:",e)
             exit()
@@ -174,7 +187,10 @@ class Datasource():
         query = "SELECT cardID FROM cards WHERE releaseDate > %s"
         try:
             self.cur.execute(query, (date,))
-            return self.cur.fetchone()
+            res = []
+            for card in self.cur.fetchall():
+                res.append(card[0])
+            return res
         except Exception as e:
             return None
 
@@ -187,7 +203,7 @@ class Datasource():
             query = "SELECT minTrophies FROM cards WHERE cardID = %s"
             try:
                 self.cur.execute(query, (card,))
-                lowest = max(lowest, self.cur.fetchone())
+                lowest = max(lowest, self.cur.fetchone()[0])
             except Exception as e:
                 print("Card Lookup Error:", e)
                 exit()
@@ -195,5 +211,10 @@ class Datasource():
 
 if __name__ == "__main__":
     datasource = Datasource()
-    print(datasource.sqlCommandRunner("SELECT * FROM information_schema.tables;"))
-    print(datasource.getCardsInDeck(0))
+    deck = datasource.getMostRecentCards('2020-11-12')
+    for card in deck:
+        print(datasource.getCardDisplayInfo(card))
+    print(datasource.getDeckElixirCost(deck))
+
+    
+    
